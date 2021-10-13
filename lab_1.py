@@ -8,7 +8,6 @@ destination = 'C:\\Users\\Ульяночка\\PycharmProjects\\lab_1\\folder'
 test_zip.extractall(destination)
 print('the archive has been unzipped')
 test_zip.close()
-
 list = os.listdir(destination)
 print(list)
 
@@ -61,12 +60,9 @@ print('\n Искомый хеш: \t\t' + target_hash)
 print('---------------------------------------Парсинг страницы по полученному хешу------------------------------------')
 import requests
 import re
-
 r = requests.get(target_file_data)
 result_dct = {}                                                                     # словарь для записи содержимого таблицы
-
 counter = 0
-
 lines = re.findall(r'<div class="Table-module_row__3TH83">.*?</div>.*?</div>.*?</div>.*?</div>.*?</div>', r.text)       # Получение списка строк таблицы
 for line in lines:
     if counter == 0:                                                                # извлечение заголовков таблицы
@@ -107,7 +103,6 @@ output.close()
 
 #Задание 6
 print('-------------------------------------------Вывод данных таблицы по ключу---------------------------------------')
-
 target_country = input("Введите название страны: ")
 print(headers)
 print(result_dct[target_country])
